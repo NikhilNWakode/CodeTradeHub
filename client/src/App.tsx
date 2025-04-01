@@ -1,13 +1,29 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import SignUp from "./pages/SignUp";
+import Login from "./pages/Login";
+import Projects from "./pages/Projects";
+import BuyerDashboard from "./pages/BuyerDashboard";
+import SellerDashboard from "./pages/SellerDashboard";
+import Navbar from "./components/Navbar";
 
 
 function App() {
-
   return (
-    <>
-         <h1 className="text-blue-800 p-4 text-center">Lets Start Building something cool....</h1>
-          <p className="text-red-600 p-4 text-center">Cooking...</p>
-    </>
-  )
+    <BrowserRouter>
+    <Navbar />
+      <Routes>
+        <Route path="/" element={<Home/>} />
+        <Route path="/signup" element={<SignUp/>} />
+        <Route path="/login" element={<Login/>} />
+        <Route path="/projects" element={<Projects/>} />
+        <Route path="/buyer/profile" element={<BuyerDashboard/>} />
+        <Route path="/seller/profile" element={<SellerDashboard />} />
+      </Routes>
+    </BrowserRouter>
+  );
 }
+
+
 
 export default App
